@@ -1,7 +1,7 @@
 const Product = require('../models/product');
 
 module.exports.create = async function(req, res){
-    console.log(req.body);
+    // console.log(req.body);
     let product = await Product.create(req.body);
     console.log('new product : ', product);
 
@@ -30,7 +30,7 @@ module.exports.details = async function(req, res){
     // console.log("fetching id =", req.params.id);
     // console.log('fetching data by query', req.query);
     let productbyId = await Product.findById(req.params.id);
-    console.log('product details :', productbyId);
+    // console.log('product details :', productbyId);
     let temp = Number(productbyId.quantity)+ Number(req.query.quantity);
     let product = await Product.findByIdAndUpdate(req.params.id, {
         quantity : temp
